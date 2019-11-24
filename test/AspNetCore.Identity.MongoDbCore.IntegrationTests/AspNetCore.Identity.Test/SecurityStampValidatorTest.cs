@@ -93,7 +93,7 @@ namespace Microsoft.AspNetCore.Identity.Test
             var services = new ServiceCollection();
             services.AddSingleton(options.Object);
             services.AddSingleton(signInManager.Object);
-            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock()));
+            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock(), null));
             httpContext.Setup(c => c.RequestServices).Returns(services.BuildServiceProvider());
 
             var ticket = new AuthenticationTicket(principal, 
@@ -128,7 +128,7 @@ namespace Microsoft.AspNetCore.Identity.Test
             var services = new ServiceCollection();
             services.AddSingleton(options.Object);
             services.AddSingleton(signInManager.Object);
-            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock()));
+            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock(), null));
             httpContext.Setup(c => c.RequestServices).Returns(services.BuildServiceProvider());
             var id = new ClaimsIdentity(IdentityConstants.ApplicationScheme);
             id.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
@@ -164,7 +164,7 @@ namespace Microsoft.AspNetCore.Identity.Test
             var services = new ServiceCollection();
             services.AddSingleton(options.Object);
             services.AddSingleton(signInManager.Object);
-            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock()));
+            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock(), null));
             httpContext.Setup(c => c.RequestServices).Returns(services.BuildServiceProvider());
             var id = new ClaimsIdentity(IdentityConstants.ApplicationScheme);
             id.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
@@ -201,7 +201,7 @@ namespace Microsoft.AspNetCore.Identity.Test
             var services = new ServiceCollection();
             services.AddSingleton(options.Object);
             services.AddSingleton(signInManager.Object);
-            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock()));
+            services.AddSingleton<ISecurityStampValidator>(new SecurityStampValidator<TestUser>(options.Object, signInManager.Object, new SystemClock(), null));
             httpContext.Setup(c => c.RequestServices).Returns(services.BuildServiceProvider());
             var id = new ClaimsIdentity(IdentityConstants.ApplicationScheme);
             id.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
